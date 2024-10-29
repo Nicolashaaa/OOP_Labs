@@ -1,18 +1,4 @@
-import * as fs from 'fs';
-import * as path from 'path';
-
-class FileReader {
-    public static readFileIntoString(filePath: string): string {
-        try {
-            return fs.readFileSync(filePath, 'utf-8');
-        } catch (error) {
-            console.error("Ошибка при чтении файла:", error);
-            return "";
-        }
-    }
-}
-
-class TextData {
+export class TextData {
     private fileName: string;
     private text: string;
     private numberOfVowels: number;
@@ -21,9 +7,9 @@ class TextData {
     private numberOfSentences: number;
     private longestWord: string;
 
-    constructor(text: string, fileName: string) {
-        this.text = text;
+    constructor(fileName: string, text: string) {
         this.fileName = fileName;
+        this.text = text;
         this.numberOfVowels = this.countVowels();
         this.numberOfConsonants = this.countConsonants();
         this.numberOfLetters = this.countLetters();
@@ -84,34 +70,14 @@ class TextData {
     public getLongestWord(): string {
         return this.longestWord;
     }
-}
 
-// Главная функция, принимающая аргументы командной строки
-function main(args: string[]) {
-    if (args.length < 1) {
-        console.error("Укажите путь к текстовому файлу в качестве аргумента.");
-        return;
+    public printInfo(): void {
+        console.log(`\nFile: ${this.fileName}`);
+        console.log(`Text: ${this.text}`); // Добавлено отображение текста
+        console.log(`Number of Vowels: ${this.numberOfVowels}`);
+        console.log(`Number of Consonants: ${this.numberOfConsonants}`);
+        console.log(`Number of Letters: ${this.numberOfLetters}`);
+        console.log(`Number of Sentences: ${this.numberOfSentences}`);
+        console.log(`Longest Word: ${this.longestWord}`);
     }
-
-    const filePath = args[0];
-    const text = FileReader.readFileIntoString(filePath);
-
-    if (!text) {
-        console.error("Не удалось прочитать файл или он пустой.");
-        return;
-    }
-
-    const fileName = path.basename(filePath);
-    const textData = new TextData(text, fileName);
-
-    console.log(`File Name: ${textData.getFilename()}`);
-    console.log(`Text: ${textData.getText()}`);
-    console.log(`Number of Vowels: ${textData.getNumberOfVowels()}`);
-    console.log(`Number of Consonants: ${textData.getNumberOfConsonants()}`);
-    console.log(`Number of Letters: ${textData.getNumberOfLetters()}`);
-    console.log(`Number of Sentences: ${textData.getNumberOfSentences()}`);
-    console.log(`Longest Word: ${textData.getLongestWord()}`);
 }
-
-// Запуск программы с аргументами командной строки
-main(process.argv.slice(2));
