@@ -1,4 +1,4 @@
-import { Intensity } from './Intensity';
+import { Intensity } from './Intensity.js';
 
 export class Coffee {
     private coffeeIntensity: Intensity;
@@ -18,5 +18,10 @@ export class Coffee {
 
     protected setName(name: string): void {
         this.name = name;
+    }
+
+    public printCoffeeDetails(): void {
+        console.log(`Coffee Name: ${this.name}`);
+        console.log(`Intensity: ${this.coffeeIntensity}`);
     }
 }

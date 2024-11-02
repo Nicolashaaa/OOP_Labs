@@ -1,5 +1,5 @@
-import { Coffee } from './Coffee';
-import { Intensity } from './Intensity';
+import { Coffee } from './Coffee.js';
+import { Intensity } from './Intensity.js';
 
 export class Cappuccino extends Coffee {
     private mlOfMilk: number;
@@ -12,5 +12,10 @@ export class Cappuccino extends Coffee {
 
     public getMlOfMilk(): number {
         return this.mlOfMilk;
+    }
+
+    public printDetails(): void {
+        this.printCoffeeDetails();
+        console.log(`Milk Volume: ${this.mlOfMilk} ml`);
     }
 }

@@ -1,5 +1,5 @@
-import { Coffee } from './Coffee';
-import { Intensity } from './Intensity';
+import { Coffee } from './Coffee.js';
+import { Intensity } from './Intensity.js';
 
 export class Americano extends Coffee {
     private mlOfWater: number;
@@ -12,5 +12,10 @@ export class Americano extends Coffee {
 
     public getMlOfWater(): number {
         return this.mlOfWater;
+    }
+
+    public printDetails(): void {
+        this.printCoffeeDetails(); // Call the common method from the parent class
+        console.log(`Water Volume: ${this.mlOfWater} ml`);
     }
 }
