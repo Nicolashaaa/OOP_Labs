@@ -7,11 +7,11 @@ import { SyrupType } from './SyrupType.js';
 
 function main() {
     const cappuccino = new Cappuccino(Intensity.NORMAL, 150);
-    cappuccino.printDetails();
+    cappuccino.makeCappuccino();
     console.log('-----------------------------'); 
 
     const pumpkinSpiceLatte = new PumpkinSpiceLatte(Intensity.STRONG, 200, 50);
-    pumpkinSpiceLatte.printDetails();
+    pumpkinSpiceLatte.makePumpkinSpiceLatte();
     console.log('-----------------------------'); 
 
     const americano = new Americano(Intensity.LIGHT, 300);

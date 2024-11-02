@@ -24,4 +24,9 @@ export class Coffee {
         console.log(`Coffee Name: ${this.name}`);
         console.log(`Intensity: ${this.coffeeIntensity}`);
     }
+
+    public makingCoffeeDetails(): void{
+        console.log(`Making ${this.name}...`);
+        console.log(`Intensity set to ${this.coffeeIntensity}`);
+    }
 }

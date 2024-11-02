@@ -14,6 +14,13 @@ export class Cappuccino extends Coffee {
         return this.mlOfMilk;
     }
 
+    public makeCappuccino(): Cappuccino {
+        this.makingCoffeeDetails();
+        console.log(`Adding ${this.mlOfMilk} ml of milk.`);
+        return this;
+    }
+
+
     public printDetails(): void {
         this.printCoffeeDetails();
         console.log(`Milk Volume: ${this.mlOfMilk} ml`);
