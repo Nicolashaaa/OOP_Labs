@@ -14,8 +14,9 @@ export class Americano extends Coffee {
         return this.mlOfWater;
     }
 
-    public printDetails(): void {
-        this.printCoffeeDetails(); // Call the common method from the parent class
-        console.log(`Water Volume: ${this.mlOfWater} ml`);
+    public makeAmericano(): Americano {
+        this.makingCoffeeDetails();
+        console.log(`Pouring ${this.mlOfWater} ml of hot water into the espresso.`);
+        return this;
     }
 }

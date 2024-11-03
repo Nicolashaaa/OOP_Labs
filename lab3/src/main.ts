@@ -1,3 +1,4 @@
+import { Barista } from './Barista.js';
 import { Cappuccino } from './Cappuccino.js';
 import { PumpkinSpiceLatte } from './PumpkinSpiceLatte.js';
 import { Americano } from './Americano.js';
@@ -6,22 +7,19 @@ import { Intensity } from './Intensity.js';
 import { SyrupType } from './SyrupType.js';
 
 function main() {
+    const barista = new Barista();
+
     const cappuccino = new Cappuccino(Intensity.NORMAL, 150);
-    cappuccino.makeCappuccino();
-    console.log('-----------------------------'); 
-
     const pumpkinSpiceLatte = new PumpkinSpiceLatte(Intensity.STRONG, 200, 50);
-    pumpkinSpiceLatte.makePumpkinSpiceLatte();
-    console.log('-----------------------------'); 
-
     const americano = new Americano(Intensity.LIGHT, 300);
-    americano.printDetails();
-    console.log('-----------------------------'); 
-
     const syrupCappuccino = new SyrupCappuccino(Intensity.NORMAL, 100, SyrupType.CARAMEL);
-    syrupCappuccino.printDetails();
-    console.log('-----------------------------'); 
+
+    barista.addCoffee(cappuccino);
+    barista.addCoffee(pumpkinSpiceLatte);
+    barista.addCoffee(americano);
+    barista.addCoffee(syrupCappuccino);
+
+    barista.makeCoffees();
 }
 
-// Call the function to create coffee and print details
 main();
