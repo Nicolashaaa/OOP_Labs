@@ -16,9 +16,9 @@ export class SyrupCappuccino extends Coffee {
         return this.syrup;
     }
 
-    public makeSyrupCappuccino(): SyrupCappuccino {
-        this.makingCoffeeDetails();
-        console.log(`Adding ${this.syrup} syrup`);
+    public printCoffeeDetails(): SyrupCappuccino {
+        this.printCoffee(); 
+        console.log(`Syrup Type: ${this.syrup}`);
         return this;
     }
 }

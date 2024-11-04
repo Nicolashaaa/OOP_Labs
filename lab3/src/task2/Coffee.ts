@@ -1,10 +1,9 @@
-import { Intensity } from './Intensity.js';
+import { Intensity } from '../task2/Intensity.js';
 
 export class Coffee {
     private coffeeIntensity: Intensity;
     private name: string = "Coffee";
     private mlOfMilk: number = 0; 
-
     constructor(coffeeIntensity: Intensity) {
         this.coffeeIntensity = coffeeIntensity;
     }
@@ -25,11 +24,13 @@ export class Coffee {
         this.mlOfMilk += ml;
     }
 
-    public makingCoffeeDetails(): void{
+    public printCoffee(): void {
         console.log(`Making ${this.name}...`);
         console.log(`Intensity set to ${this.coffeeIntensity}`);
         if (this.mlOfMilk > 0) {
             console.log(`Adding ${this.mlOfMilk} ml of milk.`);
         }
     }
+
+   
 }

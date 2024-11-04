@@ -14,9 +14,9 @@ export class Americano extends Coffee {
         return this.mlOfWater;
     }
 
-    public makeAmericano(): Americano {
-        this.makingCoffeeDetails();
-        console.log(`Pouring ${this.mlOfWater} ml of hot water into the espresso.`);
+    public printCoffeeDetails(): Americano {
+        this.printCoffee();
+        console.log(`Water Volume: ${this.mlOfWater} ml`);
         return this;
     }
 }

@@ -15,8 +15,8 @@ export class PumpkinSpiceLatte extends Coffee {
         return this.mgOfPumpkinSpice;
     }
 
-    public makePumpkinSpiceLatte(): PumpkinSpiceLatte {
-        this.makingCoffeeDetails();
+    public printCoffeeDetails(): PumpkinSpiceLatte {
+        this.printCoffee();
         console.log(`Adding ${this.mgOfPumpkinSpice} mg of pumpkin spice.`);
         return this; 
     }

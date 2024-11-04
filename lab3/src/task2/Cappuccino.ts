@@ -8,8 +8,8 @@ export class Cappuccino extends Coffee {
         this.setName("Cappuccino");
     }
 
-    public makeCappuccino(): Cappuccino {
-        this.makingCoffeeDetails();
+    public printCoffeeDetails(): Cappuccino {
+        this.printCoffee();
         return this;
     }
 
