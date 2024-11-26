@@ -10,22 +10,22 @@ export function testServices(
     gasStation: GasStation
 ) {
     // Serve dinner to people
-    peopleDinner.serveDinner("1");
-    peopleDinner.serveDinner("2");
+    peopleDinner.serveDinner(1);
+    peopleDinner.serveDinner(2);
 
     // Serve dinner to robots
-    robotDinner.serveDinner("3");
-    robotDinner.serveDinner("4");
-    robotDinner.serveDinner("5");
+    robotDinner.serveDinner(3);
+    robotDinner.serveDinner(4);
+    robotDinner.serveDinner(5);
 
     // Refuel electric cars
-    electricStation.refuel("2");
+    electricStation.refuel(2);
 
     // Refuel gas cars
-    gasStation.refuel("1");
-    gasStation.refuel("3");
-    gasStation.refuel("4");
-    gasStation.refuel("5");
+    gasStation.refuel(1);
+    gasStation.refuel(3);
+    gasStation.refuel(4);
+    gasStation.refuel(5);
 
     // Validate the total number of people served
     console.assert(PeopleDinner.getTotalServed() === 2, 'People served should be 2');

@@ -3,7 +3,7 @@ import { IRefuelable } from './IRefuelable';
 
 export class ElectricStation implements IRefuelable<string> {
     static count: number = 0;
-    refuel(carID: string): string {
+    refuel(carID: number): string {
         ElectricStation.count++;
         return `Refueling electric car ${carID}.`;
     }
