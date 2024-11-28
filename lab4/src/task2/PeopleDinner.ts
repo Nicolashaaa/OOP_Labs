@@ -1,7 +1,7 @@
 // PeopleDinner.ts
 import { IDineable } from './IDineable';
 
-export class PeopleDinner implements IDineable<string> {
+export class PeopleDinner implements IDineable{
     static count: number = 0;
     serveDinner(carID: number): string {
         PeopleDinner.count++;

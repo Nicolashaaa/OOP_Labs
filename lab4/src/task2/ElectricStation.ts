@@ -1,7 +1,7 @@
 // ElectricStation.ts
 import { IRefuelable } from './IRefuelable';
 
-export class ElectricStation implements IRefuelable<string> {
+export class ElectricStation implements IRefuelable {
     static count: number = 0;
     refuel(carID: number): string {
         ElectricStation.count++;

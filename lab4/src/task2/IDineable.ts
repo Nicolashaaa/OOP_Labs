@@ -1,4 +1,4 @@
 // Dineable Interface
-export interface IDineable<T>{
-    serveDinner(item: T): string;
+export interface IDineable{
+    serveDinner(carId: number);
 }
