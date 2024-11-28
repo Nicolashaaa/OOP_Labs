@@ -6,25 +6,22 @@ import { PeopleDinner } from '../task2/PeopleDinner';
 import { RobotDinner } from '../task2/RobotDinner';
 import {Queue} from "../task1/Queue";
 
-class Semaphore {
-    private carStation1: CarStation;
-    private carStation2: CarStation;
-    private carStation3: CarStation;
-    private carStation4: CarStation;
 
+export class Semaphore {
+    private carStation1 = new CarStation(new PeopleDinner(), new GasStation(), new Queue<Car>() );
+    private carStation2 = new CarStation(new RobotDinner(), new ElectricStation(), new Queue<Car>());
+    private carStation3 = new CarStation(new RobotDinner(), new GasStation(), new Queue<Car>());
+    private carStation4 = new CarStation(new PeopleDinner(), new ElectricStation(), new Queue<Car>());
 
-    constructor() {
-
-        const queue1 = new Queue<Car>();
-        const queue2 = new Queue<Car>();
-        const queue3 = new Queue<Car>();
-        const queue4 = new Queue<Car>();
-
-        this.carStation1 = new CarStation(new PeopleDinner(), new GasStation(), queue1);
-        this.carStation2 = new CarStation(new RobotDinner(), new ElectricStation(), queue2);
-        this.carStation3 = new CarStation(new RobotDinner(), new GasStation(), queue3);
-        this.carStation4 = new CarStation(new PeopleDinner(), new ElectricStation(), queue4);
+    public getCarStations(): { [key: string]: CarStation } {
+        return {
+            station1: this.carStation1,
+            station2: this.carStation2,
+            station3: this.carStation3,
+            station4: this.carStation4,
+        };
     }
+
     public navigateCars(car: Car): void {
         if (car.getIsDining()) {
             switch (car.getPassengers()) {

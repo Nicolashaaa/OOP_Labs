@@ -49,6 +49,8 @@ export class TestCarStation {
         console.assert(this.carStation2.isQueueEmpty(), 'Queue 2 should be empty after serving all cars');
         console.assert(this.carStation3.isQueueEmpty(), 'Queue 3 should be empty after serving all cars');
         console.assert(this.carStation4.isQueueEmpty(), 'Queue 4 should be empty after serving all cars');
+
+        console.log('✔ CarStation tests completed successfully!');
     }
 }
 
@@ -56,4 +58,4 @@ export class TestCarStation {
 const test = new TestCarStation();
 test.testService();
 
-console.log('✔ All tests have been successfully completed!');
+
