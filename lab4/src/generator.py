@@ -5,10 +5,10 @@ import time
 import shutil
 
 # Constants, change something here, the whole program changes:)
-OUTPUT_DIR = "../queue"
+OUTPUT_DIR = "../../queue"
 NR_OF_GENERATIONS = 30  # TODO change back to 30
-MIN_WAIT = 500  # in ms
-MAX_WAIT = 3000  # in ms
+MIN_WAIT =100   # in ms
+MAX_WAIT = 300  # in ms
 SECOND = 1000.0
 
 # Car properties TODO maybe add more in the future year
@@ -16,7 +16,7 @@ SECOND = 1000.0
 CAR_TYPES = ["ELECTRIC", "GAS"]
 PASSENGER_TYPES = ["PEOPLE", "ROBOTS"]
 IS_DINING = [True, False]
-CONSUMPTION_RANGE = (10, 50)
+CONSUMPTION_RANGE = (10, 100)
 
 STATS = {
     "ELECTRIC": 0,

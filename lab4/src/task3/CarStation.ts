@@ -3,6 +3,7 @@ import { IDineable } from "../task2/IDineable";
 import { IRefuelable } from "../task2/IRefuelable";
 import { Queue } from '../task1/Queue';
 import { Car } from "./Car";
+import { LoadingAnimation } from "./LoadingAnimation";
 
 // Define the CarStation class
 export class CarStation {
@@ -26,9 +27,16 @@ export class CarStation {
     }
 
     // Serve cars in the queue
-   serveCars(): void {
+   async serveCars(): Promise<void> {
         while (!this.queue.isEmpty()) {
             const car = this.queue.dequeue();
+
+            if (!car) continue; // Skip if no car found
+
+            // Delay based on car consumption
+            const delay = (car.getConsumption() / 20) * 1000; // Convert to milliseconds
+
+            await LoadingAnimation.animate(`Serving car ID ${car.getId()}`, delay);
 
             // Refuel the car
             this.refuelingService.refuel(car.getId());
@@ -37,6 +45,10 @@ export class CarStation {
             if (car.getIsDining()) {
                 this.diningService.serveDinner(car.getId());
             }
+
+            console.log(`Car ID ${car.getId()} served. Waiting ${delay / 1000} seconds for next car.`);
+
+            await new Promise((resolve) => setTimeout(resolve, delay));
         }
     }
 
